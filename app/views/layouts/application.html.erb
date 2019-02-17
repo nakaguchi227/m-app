@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MusicApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+          <div class="header-logo">
+            <%= link_to("MusicApp", "/") %>
+          </div>
+          <ul style="list-style-type: none" class="header-menus">
+            <li>
+              <%= link_to("ログイン", "#") %>
+            </li>
+            <li>
+              <%= link_to("新規登録", "#") %>
+            </li>
+
+          </ul>
+        </header>
+<br>
+          <%= yield %>
+
+
+  </body>
+</html>

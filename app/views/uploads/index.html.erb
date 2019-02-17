@@ -1,0 +1,11 @@
+
+<div class="main">
+  <% @uploads.each do |upload| %>
+    <%= upload.artist %>
+    <%= upload.title %>
+    <%= upload.comment %>
+    <%= upload.file %>
+    <br>
+
+  <% end %>
+</div>

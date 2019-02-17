@@ -1,0 +1,24 @@
+<section>
+  <div class="main">
+    <%= form_tag("/uploads/create") do %>
+    <div class="upload-new">
+    <h1>曲を投稿</h1>
+    <p><アーティスト名></p>
+    <input type="text" name="artist" size="30" maxlength="40" placeholder="アーティスト名">
+    <p><タイトル></p>
+    <input type="text" name="title" size="30" maxlength="40" placeholder="タイトル">
+    <p><コメント></p>
+    <textarea name="comment"  cols="100" rows="6" placeholder="フリーコメント"></textarea>
+    <br>
+    <div class="upload-select">
+    <p>曲を選んでください</p>
+    </div>
+    <input name="file" type="file">
+    <br>
+  <div class="btn">
+    <button type="submit" tabindex="14" class="btn-square">投稿</button></div>
+    </div>
+    <% end %>
+  </div>
+
+</section>
