@@ -1,0 +1,18 @@
+<section>
+  <div class="main">
+    <%= form_tag("/uploads/#{@upload.id}/update") do %>
+    <div class="upload-new">
+    <h1>コメントを編集</h1>
+
+    <p><コメント></p>
+    <textarea name="comment"  cols="100" rows="6" ><%= @upload.comment %></textarea>
+    <br>
+
+  <div class="btn">
+    <button type="submit" tabindex="14" class="btn-square">保存</button>
+  </div>
+    </div>
+    <% end %>
+  </div>
+
+</section>

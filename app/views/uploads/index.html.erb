@@ -1,11 +1,25 @@
 
 <div class="main">
+  <div class="index">
   <% @uploads.each do |upload| %>
-    <%= upload.artist %>
-    <%= upload.title %>
+  <div class="index-item">
+    <div class="index-title">
+    <p><span class="weight">artist:</span>
+      <%= upload.artist %>　　<span class="weight">title:</span>
+      <%= upload.title %></p>
+    </div>
     <%= upload.comment %>
+    <div>
+        <button type="submit"  class="btn-circle">▶</button>
     <%= upload.file %>
+    </div>
+    <div class="index-edit"><span class="under">
+    <%= link_to("編集", "/uploads/#{upload.id}/edit") %>
+    </span>　<span class="under">
+      <%= link_to("削除", "/uploads/#{upload.id}/destroy", {method: "upload"}) %>
+    </span></div>
     <br>
-
+  </div>
   <% end %>
+  </div>
 </div>
