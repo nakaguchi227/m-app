@@ -10,8 +10,10 @@
     </div>
     <%= upload.comment %>
     <div>
-        <button type="submit"  class="btn-circle">▶</button>
-    <%= upload.file %>
+
+    <%= audio_tag "/file/#{upload.file}",controls:true %>
+
+
     </div>
     <div class="index-edit"><span class="under">
     <%= link_to("編集", "/uploads/#{upload.id}/edit") %>

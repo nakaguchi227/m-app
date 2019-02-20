@@ -1,7 +1,12 @@
 <section>
   <div class="main">
-    <%= form_tag("/uploads/create") do %>
+    <%= form_tag("/uploads/create", {multipart: true}) do %>
     <div class="upload-new">
+       <% @upload.errors.full_messages.each do |message| %>
+       <div class="form-error">
+       <%= message %>
+       </div>
+       <% end %>
     <h1>曲を投稿</h1>
     <p><アーティスト名></p>
     <input type="text" name="artist" size="30" maxlength="40" placeholder="アーティスト名">

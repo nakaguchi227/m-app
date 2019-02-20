@@ -1,9 +1,11 @@
 class UploadsController < ApplicationController
+
   def new
+    @upload = Upload.new
   end
 
   def index
-    @uploads = Upload.all
+    @uploads = Upload.all.order(created_at: :desc)
   end
 
   def create
@@ -11,8 +13,13 @@ class UploadsController < ApplicationController
       artist: params[:artist],
       title: params[:title],
       comment: params[:comment],
-      file: params[:file]
+      file: params[:file],
     )
+     @upload.id=Upload.new
+        @upload.file ="#{@upload.id}.mp3"
+        file = params[:file]
+        File.binwrite("public/file/#{@upload.file}",file.read)
+
       if @upload.save
         redirect_to("/")
       else
@@ -37,6 +44,10 @@ class UploadsController < ApplicationController
     @upload.destroy
 
      redirect_to("/uploads/index")
+  end
+
+  def audio_tag(*sources)
+      multiple_sources_tag('audio', sources)
   end
 
 end
