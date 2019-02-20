@@ -15,7 +15,7 @@ class UploadsController < ApplicationController
       comment: params[:comment],
       file: params[:file],
     )
-     @upload.id=Upload.new
+     @upload.id=DateTime.now
         @upload.file ="#{@upload.id}.mp3"
         file = params[:file]
         File.binwrite("public/file/#{@upload.file}",file.read)
