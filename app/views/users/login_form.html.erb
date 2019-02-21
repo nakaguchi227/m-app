@@ -1,0 +1,27 @@
+<section>
+  <div class="main">
+
+
+    <% if @error_message %>
+      <div class="form-error">
+        <%= @error_message %>
+      </div>
+    <% end %>
+<%= form_tag("/login") do %>
+  <h1>Login</h1>
+  <p><ユーザー名入力></p>
+    <input type="text" name="name" size="30" maxlength="40" placeholder="ユーザー名">
+  <p><パスワード入力></p>
+    <input type="password" name="password" size="30" maxlength="40" >
+
+    <div class="btn">
+      <button type="submit" tabindex="14" class="btn-square">Login</button>
+    </div>
+<% end %>
+
+
+
+
+  </div>
+
+</section>
