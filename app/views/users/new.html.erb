@@ -1,0 +1,28 @@
+<section>
+  <div class="main">
+
+
+    <% @user.errors.full_messages.each do |message| %>
+       <div class="form-error">
+         <%= message %>
+       </div>
+     <% end %>
+
+<%= form_tag("/users/create") do %>
+
+  <h1>Sign Up</h1>
+  <p><ユーザー名></p>
+    <input type="text" name="name" size="30" maxlength="40" placeholder="新規ユーザー名">
+  <p><パスワード(6文字以上)></p>
+    <input type="password" name="password" size="30" maxlength="40" >
+
+    <div class="btn">
+      <button type="submit" tabindex="14" class="btn-square">登録</button>
+    </div>
+
+<% end %>
+
+
+  </div>
+
+</section>
