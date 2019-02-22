@@ -6,5 +6,10 @@ class Upload < ApplicationRecord
   validates :title, {presence:true}
   validates :comment, {presence:true}
   validates :file, {presence:true}
+  validates :user_id, {presence: true}
+
+  # def user
+  #    @upload.user_id = User.find_by(id: @upload.user_id)
+  # end
 
 end

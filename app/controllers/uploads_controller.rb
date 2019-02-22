@@ -1,19 +1,19 @@
 class UploadsController < ApplicationController
 
+  before_action :authenticate_user, {only: [:new, :create, :edit, :update]}
+
   def new
     @upload = Upload.new
   end
 
-  def index
-    @uploads = Upload.all.order(created_at: :desc)
-  end
 
   def create
     @upload = Upload.new(
       artist: params[:artist],
       title: params[:title],
       comment: params[:comment],
-      file: params[:file],
+      user_id: @current_user.id,
+      file: params[:file]
     )
      @upload.id=DateTime.now
         @upload.file ="#{@upload.id}.mp3"
@@ -25,6 +25,15 @@ class UploadsController < ApplicationController
       else
         render("uploads/new")
       end
+  end
+
+  def index
+    @uploads = Upload.all.order(created_at: :desc)
+    @upload = Upload.new
+    # @upload.user_id = User.find_by(id: @upload.user_id)
+
+
+
   end
 
   def edit
