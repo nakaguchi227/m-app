@@ -1,6 +1,6 @@
 class UploadsController < ApplicationController
 
-  before_action :authenticate_user, {only: [:new, :create, :edit, :update]}
+  before_action :authenticate_user, {only: [:new, :create, :edit, :update, :destroy, :index]}
 
   def new
     @upload = Upload.new
@@ -30,9 +30,8 @@ class UploadsController < ApplicationController
   def index
     @uploads = Upload.all.order(created_at: :desc)
     @upload = Upload.new
-    # @upload.user_id = User.find_by(id: @upload.user_id)
 
-
+    @current_user = User.find_by(id: session[:user_id])
 
   end
 

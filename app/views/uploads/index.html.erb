@@ -15,13 +15,19 @@
 
 
     </div>
+
+   <% if upload.user_id == @current_user.id %>
     <div class="index-edit"><span class="under">
     <%= link_to("編集", "/uploads/#{upload.id}/edit") %>
-    </span>　<span class="under">
+    </span>　
+    <span class="under">
+
       <%= link_to("削除", "/uploads/#{upload.id}/destroy", {method: "upload"}) %>
-    </span></div>
+    </span>
+    </div>
+    <% end %>
     <br>
-  
+
 
   </div>
   <% end %>
